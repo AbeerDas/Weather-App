@@ -2,7 +2,10 @@
 
 Welcome to **Abeer's Weather App**! 🌦️
 
-![Abeer's Weather App](Images/weather.png)
+<div style="text-align: center;">
+  <img src="Images/weather.png" alt="Abeer's Weather App" style="display: block; margin: 0 auto; width: 400px;">
+</div>
+
 
 ## Overview
 
@@ -48,13 +51,9 @@ This weather app is powered by the OpenWeatherMap API to provide you with accura
 
 To use Abeer Weather App, you will need an internet connection. Simply open the HTML file in your web browser, and you're good to go!
 
-## Developer
-
-This weather app was developed by Abeer, a passionate web developer who loves to create useful and beautiful web applications.
-
 ## Feedback
 
-We value your feedback! If you have any suggestions or encounter any issues while using Abeer Weather App, please don't hesitate to get in touch with us.
+If you have any suggestions or encounter any issues while using Abeer Weather App, please don't hesitate to get in touch with us.
 
 Enjoy checking the weather with **Abeer's Weather App**! 🌍🌦️🔍
 
