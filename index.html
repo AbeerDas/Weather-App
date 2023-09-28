@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abeer Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card">
+        <div>
+            <p class="title">Abeer's Weather Thingy<p> <!-- Title of the weather app -->
+        </div>
+        <div class="search">
+            <input type="text" placeholder="enter geographic location" spellcheck="false"> <!-- Input field for entering city name -->
+            <button><img src="Images/search.png" alt=""></button> <!-- Search button -->
+        </div>
+        <div class="weather">
+            <img src="Images/rain.png" class="weather-icon img"> <!-- Weather icon -->
+            <h1 class="temp temp-value">sample</h1> <!-- Temperature value -->
+            <h2 class="city city-name">no city entered</h2> <!-- City name -->
+            <div class="details">
+                <div class="col">
+                    <img src="Images/humidity.png" class="humidityImg"> <!-- Humidity icon -->
+                    <div>
+                     <p class="humidity humidity-value">N/A</p> <!-- Humidity value -->
+                     <p class="humiditytext">Humidity</p> <!-- Humidity text label -->
+                </div>
+            </div>
+              <div class="col">
+                <img src="Images/wind.png" class="windImg"> <!-- Wind icon -->
+                <div>
+                    <p class="wind wind-value">2.68 km/h</p> <!-- Wind speed value -->
+                    <p class="windtext">Wind Speed</p> <!-- Wind speed text label -->
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+<script>
+
+const apiKey = "bb92b29cfd9a5d69a4edf57809c6a8b6";
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+const searchBox = document.querySelector(".search input");
+const searchBtn = document.querySelector(".search button");
+const weatherIcon = document.querySelector(".weather-icon");
+const humidityHeading = document.querySelector(".humiditytext");
+const windHeading = document.querySelector(".windtext");
+const cityNameElement = document.querySelector(".city-name");
+const tempElement = document.querySelector(".temp-value");
+const humidityElement = document.querySelector(".humidity-value");
+const windElement = document.querySelector(".wind-value");
+const windImage = document.querySelector(".windImg");
+const humidityImage = document.querySelector(".humidityImg");
+
+function fadeIn(element) {
+    element.style.opacity = 0;
+    element.style.transform = "translateY(20px)";
+
+    setTimeout(() => {
+        element.style.opacity = 1;
+        element.style.transform = "translateY(0)";
+    }, 100);
+}
+
+
+async function checkWeather(city){
+    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+    var data = await response.json();
+
+    console.log(data); 
+
+    const elementsToAnimate = [
+        humidityHeading,
+        windHeading,
+        cityNameElement,
+        tempElement,
+        humidityElement,
+        windElement,
+        weatherIcon,
+        windImage,
+        humidityImage
+    ];
+
+    elementsToAnimate.forEach(element => fadeIn(element));
+
+    document.querySelector(".city").innerHTML = data.name;
+    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
+    document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+    document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+
+    if (data.weather[0].main == "Clouds") {
+        weatherIcon.src = "Images/clouds.png"
+    }
+    else if (data.weather[0].main == "Clear"){
+        weatherIcon.src = "Images/clear.png"
+    }
+    else if (data.weather[0].main == "Drizzle"){
+        weatherIcon.src = "Images/drizzle.png"
+    }
+    else if (data.weather[0].main == "Rain"){
+        weatherIcon.src = "Images/rain.png"
+    }
+    else if (data.weather[0].main == "Snow"){
+        weatherIcon.src = "Images/snow.png"
+    }
+    else if (data.weather[0].main == "Mist"){
+        weatherIcon.src = "Images/mist.png"
+    }
+
+}
+
+searchBtn.addEventListener("click", ()=>{
+    checkWeather(searchBox.value);
+})
+
+searchBox.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+        checkWeather(searchBox.value);
+    }
+});
+
+</script>
+
+</body>
+</html>
