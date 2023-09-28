@@ -3,7 +3,7 @@
 Welcome to **Abeer's Weather App**! 🌦️
 
 <div style="text-align: center;">
-  <img src="Images/weather.png" alt="Abeer's Weather App" style="display: block; margin: 0 auto; width: 400px;">
+  <img src="Images/WeatherSample.png" alt="Abeer's Weather App" style="display: block; margin: 0 auto; width: 400px;">
 </div>
 
 
