@@ -1,6 +1,6 @@
 # Weather App
 
-Welcome to **Abeer's Weather App**! 🌦️
+Welcome to **Weather App**! 🌦️
 
 <div style="text-align: center;">
   <img src="Images/WeatherSample.png" alt="Abeer's Weather App" style="display: block; margin: 0 auto; width: 400px;">
@@ -9,7 +9,7 @@ Welcome to **Abeer's Weather App**! 🌦️
 
 ## Overview
 
-Abeer Weather App is a simple and stylish web application that allows you to check the weather for any location around the world. With its user-friendly interface and beautiful design, you can quickly get the weather information you need. Just enter the name of a city, hit the search button, and you'll receive up-to-date weather details in an instant.
+Weather App is a simple and stylish web application that allows you to check the weather for any location around the world. With its user-friendly interface and beautiful design, you can quickly get the weather information you need. Just enter the name of a city, hit the search button, and you'll receive up-to-date weather details in an instant.
 
 ## How to Use
 
